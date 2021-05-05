@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Bienvenue{% endblock %}
+
+{% block body %}
+    <h1>Organise et participe aux sorties proche de ton campus</h1>
+    <h5>Accès uniquement pour les étudiants et anciens étudiants Eni</h5>
+    <div><a href="{{ path('app_login') }}" title="se connecter">Se connecter</a></div>
+{% endblock %}
