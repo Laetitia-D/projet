@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Modifier Campus{% endblock %}
+
+{% block body %}
+    {{ include('campus/ajouterCampus.html.twig') }}
+    <button type="submit" class="btn">modifier</button>
+    <a href="afficherCampus.html.twig">Revenir à la liste des campus</a>
+{% endblock %}

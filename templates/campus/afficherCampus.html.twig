@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Campus{% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Campus</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for campus in Campus %}
+            <tr>
+                <td>{{ campus.nomCampus }}</td>
+                <td>
+                    <a href="{{ path('campus_modifierCampus', {'id': campus.id}) }}">modifier</a>
+                    <a href="{{ path('campus_supprimerCampus', {'id': campus.id}) }}">Supprimer</a>
+                    <a href="{{ path('campus_ajouterCampus', {'id': campus.id}) }}">Ajouter</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
