@@ -39,7 +39,7 @@ class Participants implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $pseudo;
 
@@ -54,7 +54,7 @@ class Participants implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=12, nullable=true)
+     * @ORM\Column(type="tel", length=12, nullable=true)
      */
     private $telephone;
 

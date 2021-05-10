@@ -1,21 +1,15 @@
-{# <nav>
-    <ul>
-        <li><a href="{{ path('villes_gererVilles') }}">Villes</a></li>
-        <li><a href="{{ path('campus_ajouterCampus') }}">Campus</a></li>
-        <li><a href="{{ path('main_accueil') }}">Accueil</a></li>
-        <li><a href="{{ path('profil_monProfil') }}">Mon Profil</a></li>
-        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
-    </ul>
-</nav> #}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <nav class="main-navigation">
     <div class="navbar-header animated fadeInUp">
-        <a class="navbar-brand" href="{{ path('main_home') }}"><img src="{{ asset('img/index.jpg') }}" alt="logo eni">Sortir.com</a>
+        <a href="{{ path('main_home') }}" class="navbar-brand" > <img src="{{ asset('img/index.jpg') }}" alt="logo eni">Sortir.com</a>
     </div>
     <ul class="nav-list">
+        <li class="nav-list-item">
+            <a href="{{ path('main_home') }}" class="nav-link">Home</a>
+        </li>
         <li class="nav-list-item">
             <a href="{{ path('villes_gererVilles') }}" class="nav-link">Villes</a>
         </li>
@@ -33,4 +27,16 @@
         </li>
     </ul>
 
+</nav>
+
+<nav class="bg-dark navbar-dark">
+    <div class="container">
+        <a href="" class="navbar-brand"><i class="fas fa-home mr-2"></i>Home</a>
+        <a href="" class="navbar-brand"><i class="fas fa-home mr-2"></i>Accueil</a>
+        <a href="" class="navbar-brand"><i class="fas fa-city mr-2"></i>Villes</a>
+        <a href="" class="navbar-brand"><i class="fas fa-graduation-cap mr-2"></i>Campus</a>
+        <a href="" class="navbar-brand"><i class="fas fa-user-circle mr-2"></i>Mon profil</a>
+        <a href="" class="navbar-brand"><i class="fas fa-user-friends mr-2"></i>A propos</a>
+        <a href="" class="navbar-brand"><i class="fas fa-user-lock mr-2"></i>Se déconnecter</a>
+    </div>
 </nav>

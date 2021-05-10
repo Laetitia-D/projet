@@ -3,7 +3,13 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
+    <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -13,30 +19,54 @@
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
+    <div class="container">
 
-    <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
-    <label for="inputEmail">Identifiant : </label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Mot de passe : </label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+        <div class="row justify-content-center d-flex flex-column align-items-center h-100">
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+            <div class="col-md-4">
+                <div class="login-purple-pink p-3 shadow-lg rounded">
+                    <div class="pt-3">
+                        <h2 class="text-white ">Connectez-vous</h2>
+                    </div>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+                    <form class="mt-5">
+                        <div class="form-group">
+                            <label for="inputEmail"></label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                                   class="form-control form-control-sm bg-light"
+                                   placeholder="Email" required autofocus>
+                        </div>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+                        <div class="form-group">
+                            <label for="inputPassword"></label>
+                            <input type="password" name="password" id="inputPassword"
+                                   class="form-control form-control-sm bg-light"
+                                   placeholder="Password" required>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberCheckBox">
+                            <label class="form-check-label text-light" for="rememberCheckBox">Se souvenir de moi</label>
+                        </div>
+
+                        <div class="mt-5">
+                            <button class="btn btn-sm btn-light col" type="submit">
+                                Se connecter
+                            </button>
+                        </div>
+
+                        <div class="text-center mt-2">
+                            <a href="#" class="text-warning">Mot de passe oublié ?</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    </div>
+    </form>
 {% endblock %}
