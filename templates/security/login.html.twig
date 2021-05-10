@@ -2,13 +2,17 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block body %}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% block extrastyles %}
+    <style>
+        html,body{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('{{ asset('img/fete.jpeg') }}');
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
 
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -20,53 +24,50 @@
         </div>
     {% endif %}
     <div class="container">
-
-        <div class="row justify-content-center d-flex flex-column align-items-center h-100">
-
-            <div class="col-md-4">
-                <div class="login-purple-pink p-3 shadow-lg rounded">
-                    <div class="pt-3">
-                        <h2 class="text-white ">Connectez-vous</h2>
-                    </div>
-
-                    <form class="mt-5">
-                        <div class="form-group">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Connectez-vous</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
                             <label for="inputEmail"></label>
-                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
-                                   class="form-control form-control-sm bg-light"
-                                   placeholder="Email" required autofocus>
-                        </div>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
 
-                        <div class="form-group">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
                             <label for="inputPassword"></label>
-                            <input type="password" name="password" id="inputPassword"
-                                   class="form-control form-control-sm bg-light"
-                                   placeholder="Password" required>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
                         </div>
 
                         <input type="hidden" name="_csrf_token"
-                               value="{{ csrf_token('authenticate') }}"
-                        >
+                               value="{{ csrf_token('authenticate') }}">
 
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberCheckBox">
-                            <label class="form-check-label text-light" for="rememberCheckBox">Se souvenir de moi</label>
+                        <div class="row align-items-center remember">
+                            <label for="checkbox"></label>
+                            <input type="checkbox" id="checkbox">Se souvenir de moi
                         </div>
-
-                        <div class="mt-5">
-                            <button class="btn btn-sm btn-light col" type="submit">
-                                Se connecter
-                            </button>
+                        <div class="form-group">
+                            <button type="submit" class="btn float-right login_btn">Connexion</button>
                         </div>
-
-                        <div class="text-center mt-2">
-                            <a href="#" class="text-warning">Mot de passe oublié ?</a>
-                        </div>
-
                     </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a href="#">Mot de passe oublié?</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </form>
 {% endblock %}
+
+{% block footer %} {{ parent() }}{% endblock %}

@@ -2,8 +2,34 @@
 
 {% block title %}{{ parent() }} | Bienvenue{% endblock %}
 
-{% block body %}
-    <h1>Organise et participe aux sorties proche de ton campus</h1>
-    <h5>Accès uniquement pour les étudiants et anciens étudiants Eni</h5>
-    <div><a href="{{ path('app_login') }}" title="se connecter">Se connecter</a></div>
+{% block extrastyles %}
+    <style>
+        html,body{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('{{ asset('img/fete.jpeg') }}');
+            background-size: cover;
+        }
+    </style>
 {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Organise et participe aux sorties proche de ton campus</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Accès uniquement aux étudiants et anciens étudiants Eni</h5>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ path('app_login') }}" class="btn float-right login_btn">Connexion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %} {{ parent() }}{% endblock %}
