@@ -52,7 +52,7 @@
 
                         <div class="row align-items-center remember">
                             <label for="checkbox"></label>
-                            <input type="checkbox" id="checkbox">Se souvenir de moi
+                            <input type="checkbox" name="_remember_me" id="checkbox">Se souvenir de moi
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn float-right login_btn">Connexion</button>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center">
-                        <a href="#">Mot de passe oublié?</a>
+                        <a href="{{ path('app_forgot_password_request') }}" title="Mot de passe oublié">Mot de passe oublié?</a>
                     </div>
                 </div>
             </div>

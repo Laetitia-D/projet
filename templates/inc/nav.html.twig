@@ -7,15 +7,28 @@
         <a href="{{ path('main_home') }}" class="navbar-brand" > <img src="{{ asset('img/index.jpg') }}" alt="logo eni">Sortir.com</a>
     </div>
     <ul class="nav-list">
-        <li class="nav-list-item">
-            <a href="{{ path('main_home') }}" class="nav-link">Home</a>
-        </li>
-        <li class="nav-list-item">
-            <a href="{{ path('villes_index') }}" class="nav-link">Villes</a>
-        </li>
-        <li class="nav-list-item">
-            <a href="{{ path('campus_afficherCampus') }}" class="nav-link">Campus</a>
-        </li>
+        {% if is_granted("ROLE_ADMIN") %}
+            <li class="nav-list-item">
+                <a href="{{ path('app_register') }}" class="nav-link">Enregistrer</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="{{ path('villes_index') }}" class="nav-link">Villes</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="{{ path('campus_afficherCampus') }}" class="nav-link">Campus</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="{{ path('main_accueil') }}" class="nav-link">Accueil</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="{{ path('profil_monProfil') }}" class="nav-link">Mon profil</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter ({{ app.user.prenom }} {{ app.user.nom }}) ({{ "now"|date("d/m/Y") }})</a>
+            </li>
+        {% endif %}
+
+        {% if is_granted("ROLE_USER") %}
         <li class="nav-list-item">
             <a href="{{ path('main_accueil') }}" class="nav-link">Accueil</a>
         </li>
@@ -23,8 +36,9 @@
             <a href="{{ path('profil_monProfil') }}" class="nav-link">Mon profil</a>
         </li>
         <li class="nav-list-item">
-            <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter</a>
+            <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter ({{ app.user.prenom }} {{ app.user.nom }}) ({{ "now"|date("d/m/Y") }})</a>
         </li>
+        {% endif %}
     </ul>
 
 </nav>

@@ -61,25 +61,22 @@ class CampusController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', 'Campus modifier !');
-            return $this->redirectToRoute('campus_modifierCampus');
+            return $this->redirectToRoute('campus_afficherCampus');
         }
 
         return $this->render('campus/modifierCampus.html.twig', [
             'campus' => $campus,
-            'form' => $campusForm->createView(),
+            'CampusForm' => $campusForm->createView(),
         ]);
     }
 
     /**
      * @Route("/campus/{id}", name="campus_supprimerCampus")
      */
-    public function supprimer(Request $request, Campus $campus): Response
+    public function supprimer(Request $request, Campus $campus, EntityManagerInterface $em): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$campus->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($campus);
-            $entityManager->flush();
-        }
+       $em->remove($campus);
+       $em->flush();
 
         $this->addFlash('success', 'Campus supprimer !');
         return $this->redirectToRoute('campus_afficherCampus');

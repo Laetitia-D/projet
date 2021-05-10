@@ -56,7 +56,7 @@ a.nav-link {
     font-weight: 500;
     cursor: pointer;
     position: relative;
-    color: white;
+    color: #ffc312;
 }
 
 @keyframes FadeIn {
@@ -153,6 +153,6 @@ img {
 
 footer {
     padding: 2rem 0;
-    color: white;
+    color: #ffc312;
 }
 
