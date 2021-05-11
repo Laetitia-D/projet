@@ -69,7 +69,7 @@ class ParticipantsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('participants_index');
+            return $this->redirectToRoute('participants_show');
         }
 
         return $this->render('participants/edit.html.twig', [
