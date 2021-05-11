@@ -2,6 +2,16 @@
 
 {% block title %}{{ parent() }} | Accueil{% endblock %}
 
+{% block extrastyles %}
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('{{ asset('img/fete.jpeg') }}');
+            background-size: cover;
+        }
+
+    </style>
+{% endblock %}
+
 {% block body %}
 <h1>Filtrer les sorties</h1>
 {% endblock %}

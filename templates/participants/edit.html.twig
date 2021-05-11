@@ -18,8 +18,8 @@
     <h1>Mon profil</h1>
 
     <table class="table">
-        {{ form_start(form) }}
-        {% for participant in participants %}
+        {{ form(form) }}
+        {% for participant in Participants %}
         <tbody>
         <tr>
             <th>Pseudo : </th>

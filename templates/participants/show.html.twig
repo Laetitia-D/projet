@@ -2,8 +2,41 @@
 
 {% block title %}Participants{% endblock %}
 
+
+{% block extrastyles %}
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('{{ asset('img/fete.jpeg') }}');
+            background-size: cover;
+        }
+
+        .table{
+            height: 500px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 600px;
+            background-color: rgba(0,0,0,0.5) !important;
+        }
+        tbody,th,tr{
+            background-color: #c7c2a5;
+            box-shadow: 0 6px 50px black inset;
+            color: black;
+        }
+
+        h1.retour{
+            color: white;
+        }
+        a.retour{
+            color: white;
+        }
+        th,td{
+            color: white;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-    <h1>Mon profil</h1>
+    <h1 class="retour">Mon profil</h1>
 
     <table class="table">
         <tbody>
@@ -46,9 +79,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('participants_index') }}">back to list</a>
+    <a href="{{ path('participants_index') }}" class="retour">back to list</a>
 
-    <a href="{{ path('participants_edit', {'id': participant.id}) }}">edit</a>
+    <a href="{{ path('participants_edit', {'id': participant.id}) }}" class="retour">edit</a>
 
     {{ include('participants/_delete_form.html.twig') }}
 {% endblock %}

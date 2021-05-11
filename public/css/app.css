@@ -14,7 +14,7 @@ body {
 main {
     flex: 1;
     padding: 1rem 0;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 a.navbar-brand {
@@ -154,5 +154,9 @@ img {
 footer {
     padding: 2rem 0;
     color: #ffc312;
+}
+header{
+
+    height: 100px;
 }
 
