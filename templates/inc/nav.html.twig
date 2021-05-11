@@ -33,7 +33,7 @@
             <a href="{{ path('main_accueil') }}" class="nav-link">Accueil</a>
         </li>
         <li class="nav-list-item">
-            <a href="{{ path('profil_monProfil') }}" class="nav-link">Mon profil</a>
+            <a href="{{ path('participants_show', {'id': app.user.id}) }}" class="nav-link">Mon profil</a>
         </li>
         <li class="nav-list-item">
             <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter ({{ app.user.prenom }} {{ app.user.nom }}) ({{ "now"|date("d/m/Y") }})</a>
