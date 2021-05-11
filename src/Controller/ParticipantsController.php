@@ -49,7 +49,7 @@ class ParticipantsController extends AbstractController
     }
 
     /**
-     * @Route("/participants/{id}", name="participants_show", methods={"GET"})
+     * @Route("/monProfil/{id}", name="participants_show", methods={"GET"})
      */
     public function show(Participants $participant): Response
     {
@@ -59,7 +59,7 @@ class ParticipantsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="participants_edit", methods={"GET","POST"})
+     * @Route("/modifierProfil/{id}", name="participants_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Participants $participant): Response
     {

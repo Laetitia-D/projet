@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Participants{% endblock %}
+{% block title %}{{ parent() }} | Modifier mon profil{% endblock %}
 
 {% block body %}
-    <h1>Edit Participants</h1>
+    <h1>Mon profil modifier</h1>
 
     {{ include('participants/_form.html.twig', {'button_label': 'Update'}) }}
 
